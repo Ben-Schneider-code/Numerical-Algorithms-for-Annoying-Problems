@@ -1,3 +1,3 @@
 # Numerical Algorithms
 
-Implementing numerical algs to solve common porblems.
+Implementing numerical algs to solve common problems!
