@@ -1,16 +1,17 @@
 package com.NumericalMethodsInJava.Objects;
 
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Function{
 
-	Predicate<Double> function;
+	Consumer<Number> function;
 
-	public Function(Predicate<Double> function){
+	public Function(Consumer<Number> function){
 		this.function = function;
 	}
 
-	public void evaluate(double x){
+	public void evaluate(Number x){
 		function.accept(x);
 	}
 
