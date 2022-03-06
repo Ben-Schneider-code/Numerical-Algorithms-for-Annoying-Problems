@@ -40,18 +40,21 @@ public class SqrtApproximation{
 	}
 
 	//Newton-'s Method
-	//The generalized newtons method we are using here solves for roots of a function f(x)
+	//The generalized newtons method we are using here solves for root of a function f(x)
 	//That is f(x) = 0, here we are trying to solve for roots of n (i.e. x^2 = n)
 	//To use newtons method we must rearrange our equation to be in the form f(x) = 0
 	//We get: f(x) = x^2 - n = 0 <=> (x.value * x.value)- numToRoot.value [first function parameter]
 	//We also need f'(x) = 2x = 0 <=> x.value = x.value * 2 [second function parameter]
 	public static Number newtonMethod(Number numToRoot, int iterations){
-		return RootApproximation.newtonMethod(
+		//get a root
+		Number number = RootApproximation.newtonMethod(
 				numToRoot,
 				new Function( (x)->{x.value = (x.value * x.value)- numToRoot.value; }),
 				new Function( (x)->{x.value = x.value * 2;}),
 				iterations
 		);
-
+		//return the positive root, as Newton's method does not always converge on the positive root
+		number.value = Math.abs(number.value);
+		return number;
 	}
 }
