@@ -46,15 +46,11 @@ public class SqrtApproximation{
 	//We get: f(x) = x^2 - n = 0 <=> (x.value * x.value)- numToRoot.value [first function parameter]
 	//We also need f'(x) = 2x = 0 <=> x.value = x.value * 2 [second function parameter]
 	public static Number newtonMethod(Number numToRoot, int iterations){
-		//get a root
-		Number number = RootApproximation.newtonMethod(
+		return RootApproximation.newtonMethod(
 				numToRoot,
 				new Function( (x)->{x.value = (x.value * x.value)- numToRoot.value; }),
 				new Function( (x)->{x.value = x.value * 2;}),
 				iterations
 		);
-		//return the positive root, as Newton's method does not always converge on the positive root
-		number.value = Math.abs(number.value);
-		return number;
 	}
 }
